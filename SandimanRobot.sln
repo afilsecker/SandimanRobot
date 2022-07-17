@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SandimanRobot", "SandimanRobot\SandimanRobot.vcxproj", "{75CEF74D-9543-4546-85FB-8079D16E7FA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75CEF74D-9543-4546-85FB-8079D16E7FA5}.Debug|x64.ActiveCfg = Debug|x64
+		{75CEF74D-9543-4546-85FB-8079D16E7FA5}.Debug|x64.Build.0 = Debug|x64
+		{75CEF74D-9543-4546-85FB-8079D16E7FA5}.Release|x64.ActiveCfg = Release|x64
+		{75CEF74D-9543-4546-85FB-8079D16E7FA5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {293AAE65-474A-44E1-A16B-87E7CD8C0850}
+	EndGlobalSection
+EndGlobal
