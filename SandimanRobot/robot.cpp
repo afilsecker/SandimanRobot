@@ -24,6 +24,7 @@ bool Robot::login(const char* addr, int port) {
             if (rs_login(r_rshd, ROBOT_ADDR, port) == RS_SUCC) {
                 result = true;
                 qDebug() << "loggin successful";
+                startup();
             }
             else {
                 qDebug() << "loggin failed";
@@ -43,20 +44,20 @@ bool Robot::login(const char* addr, int port) {
 
 bool Robot::startup() {
     bool result = false;
-    cout << "Starting up..." << endl;
+    qDebug() << "Starting up...";
     if (rs_robot_startup(r_rshd, &tool_dynamics, colli_class, read_pos, static_colli_detect,
         board_maxacc, &state) == RS_SUCC) {
         result = true;
-        cout << "call robot startup succ, robot state:" << state << endl;
+        qDebug() << "call robot startup succ, robot state:" << state;
     }
     else {
-        cout << "robot startup failed" << endl;
+        qDebug() << "robot startup failed";
     }
     return result;
 }
 
 
-void Robot::setSpeed(double speed)
+void Robot::setSpeed(int speed)
 {
     speed_ = speed;
     rs_init_global_move_profile(r_rshd);

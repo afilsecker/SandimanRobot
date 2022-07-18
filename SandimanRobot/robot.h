@@ -19,7 +19,7 @@ public:
 
 public:
 	RSHD r_rshd = -1;
-	double speed_ = 0.5;
+	double speed_ = 2;
 
 private:
 	ToolDynamicsParam tool_dynamics = { 0 };
@@ -45,7 +45,7 @@ public:
 
 	bool teachMove(teach_mode mode, bool dir);
 	void stopTeachMove();
-	void setSpeed(double speed);
+	void setSpeed(int speed);
 	void my_example();
 	void moveLineTo();
 
