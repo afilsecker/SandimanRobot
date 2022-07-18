@@ -43,12 +43,18 @@
     <ClCompile Include="start_window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="robot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="application.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="start_window.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="robot.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

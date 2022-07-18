@@ -13,4 +13,13 @@ public:
 
 private:
     Ui::StartWindowClass ui;
+
+signals:
+    void requestLogin(const char *ip, int port);
+
+private slots:
+    void loginButtonPressed();
+
+public:
+    void loginFailed();
 };

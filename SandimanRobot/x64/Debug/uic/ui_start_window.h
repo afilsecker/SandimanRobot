@@ -25,12 +25,13 @@ class Ui_StartWindowClass
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
-    QLineEdit *lineEditPort;
-    QLabel *label;
     QLabel *label_2;
-    QLineEdit *lineEditIp;
-    QPushButton *pushButtonLogin;
     QLabel *label_3;
+    QLabel *label;
+    QPushButton *pushButtonLogin;
+    QLineEdit *lineEditIp;
+    QLineEdit *lineEditPort;
+    QLabel *labelMsg;
 
     void setupUi(QMainWindow *StartWindowClass)
     {
@@ -43,30 +44,10 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        lineEditPort = new QLineEdit(centralWidget);
-        lineEditPort->setObjectName(QString::fromUtf8("lineEditPort"));
-
-        gridLayout->addWidget(lineEditPort, 2, 1, 1, 1);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout->addWidget(label, 1, 0, 1, 1);
-
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         gridLayout->addWidget(label_2, 2, 0, 1, 1);
-
-        lineEditIp = new QLineEdit(centralWidget);
-        lineEditIp->setObjectName(QString::fromUtf8("lineEditIp"));
-
-        gridLayout->addWidget(lineEditIp, 1, 1, 1, 1);
-
-        pushButtonLogin = new QPushButton(centralWidget);
-        pushButtonLogin->setObjectName(QString::fromUtf8("pushButtonLogin"));
-
-        gridLayout->addWidget(pushButtonLogin, 3, 0, 1, 2);
 
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -76,6 +57,38 @@ public:
         label_3->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_3, 0, 0, 1, 2);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        gridLayout->addWidget(label, 1, 0, 1, 1);
+
+        pushButtonLogin = new QPushButton(centralWidget);
+        pushButtonLogin->setObjectName(QString::fromUtf8("pushButtonLogin"));
+
+        gridLayout->addWidget(pushButtonLogin, 4, 0, 1, 2);
+
+        lineEditIp = new QLineEdit(centralWidget);
+        lineEditIp->setObjectName(QString::fromUtf8("lineEditIp"));
+
+        gridLayout->addWidget(lineEditIp, 1, 1, 1, 1);
+
+        lineEditPort = new QLineEdit(centralWidget);
+        lineEditPort->setObjectName(QString::fromUtf8("lineEditPort"));
+
+        gridLayout->addWidget(lineEditPort, 2, 1, 1, 1);
+
+        labelMsg = new QLabel(centralWidget);
+        labelMsg->setObjectName(QString::fromUtf8("labelMsg"));
+        labelMsg->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(labelMsg->sizePolicy().hasHeightForWidth());
+        labelMsg->setSizePolicy(sizePolicy);
+        labelMsg->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(labelMsg, 3, 0, 1, 2);
 
         StartWindowClass->setCentralWidget(centralWidget);
 
@@ -87,12 +100,13 @@ public:
     void retranslateUi(QMainWindow *StartWindowClass)
     {
         StartWindowClass->setWindowTitle(QCoreApplication::translate("StartWindowClass", "StartWindow", nullptr));
-        lineEditPort->setText(QCoreApplication::translate("StartWindowClass", "8899", nullptr));
-        label->setText(QCoreApplication::translate("StartWindowClass", "IP:", nullptr));
         label_2->setText(QCoreApplication::translate("StartWindowClass", "Port:", nullptr));
-        lineEditIp->setText(QCoreApplication::translate("StartWindowClass", "192.168.0.42", nullptr));
-        pushButtonLogin->setText(QCoreApplication::translate("StartWindowClass", "Login", nullptr));
         label_3->setText(QCoreApplication::translate("StartWindowClass", "Sandiman Robot Controller", nullptr));
+        label->setText(QCoreApplication::translate("StartWindowClass", "IP:", nullptr));
+        pushButtonLogin->setText(QCoreApplication::translate("StartWindowClass", "Login", nullptr));
+        lineEditIp->setText(QCoreApplication::translate("StartWindowClass", "192.168.0.42", nullptr));
+        lineEditPort->setText(QCoreApplication::translate("StartWindowClass", "8899", nullptr));
+        labelMsg->setText(QCoreApplication::translate("StartWindowClass", "Welcome", nullptr));
     } // retranslateUi
 
 };

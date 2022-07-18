@@ -1,7 +1,2 @@
-﻿  moc start_window.h
-  start_window.cpp
-  application.cpp
-  main.cpp
-  moc_application.cpp
-  moc_start_window.cpp
+﻿  robot.cpp
   SandimanRobot.vcxproj -> C:\dev\SandimanRobot\x64\Debug\SandimanRobot.exe

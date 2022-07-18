@@ -2,9 +2,12 @@
 
 #include <QObject>
 #include <QApplication>
+#include <QThread>
 
 #include "main_window.h"
 #include "start_window.h"
+
+#include "robot.h"
 
 class Application  : public QObject
 {
@@ -23,5 +26,13 @@ private:
     MainWindow m_main_window;
 
     StartWindow m_start_window;
+
+    Robot m_robot;
+
+    QThread* m_robot_thread = new QThread;
+
+public slots:
+
+    void loginResultRecieve(bool result);
 
 };
