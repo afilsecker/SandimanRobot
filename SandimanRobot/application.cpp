@@ -3,12 +3,13 @@
 
 
 
-Application::Application(int &argc, char **argv)
+Application::Application(int& argc, char** argv)
     : m_app(argc, argv)
 {
     qDebug() << "initializing the application";
 
     m_robot.moveToThread(m_robot_thread);
+    m_controller.moveToThread(m_controller_thread);
 
     connect(&m_start_window, &StartWindow::requestLogin, &m_robot, &Robot::login);
     connect(&m_robot, &Robot::loginResult, this, &Application::loginResultRecieve);
@@ -43,7 +44,13 @@ Application::Application(int &argc, char **argv)
 
     connect(m_main_window.ui.horizontalScrollBarSpeed, &QScrollBar::valueChanged, &m_robot, &Robot::setSpeed);
 
+    connect(m_controller_thread, &QThread::started, &m_controller, &Controller::connectController);
+
+    connect(&m_controller, &Controller::sendDir, this, &Application::moveByController);
+    connect(&m_controller, &Controller::sendStop, this, &Application::stopByController);
+
     m_robot_thread->start();
+    m_controller_thread->start();
     m_start_window.show();
 }
 
@@ -103,10 +110,14 @@ void Application::stopByButton()
 
 
 void Application::moveByKey(Qt::Key key) {
-    int n = sizeof(kAcceptedKeys) / sizeof(*kAcceptedKeys);
-    if (key_or_button == None) {
-        if (std::find(kAcceptedKeys, kAcceptedKeys + n, key) != kAcceptedKeys + n) {
-            if (pressed_key == (Qt::Key)0) {
+    if (key_or_button == None)  // None is in use
+    {
+        int n = sizeof(kAcceptedKeys) / sizeof(*kAcceptedKeys);
+        if (std::find(kAcceptedKeys, kAcceptedKeys + n, key) != kAcceptedKeys + n)  // key is in accepted keys
+        {
+            if (pressed_key == (Qt::Key)0)  // Key is pressed 
+            {
+                qDebug() << "Move";
                 pressed_key = key;
                 key_or_button = Key;
                 if (key == Qt::Key_W) m_robot.teachMove(MOV_X, false);
@@ -132,6 +143,7 @@ void Application::stopByKey(Qt::Key key) {
     std::cout << (int)pressed_key << std::endl;
     if (key_or_button == Key) {
         if (key == pressed_key) {
+            qDebug() << "stop";
             pressed_key = (Qt::Key)0;
             key_or_button = None;
             m_robot.stopTeachMove();
@@ -139,3 +151,13 @@ void Application::stopByKey(Qt::Key key) {
     }
 }
 
+
+void Application::moveByController(teach_mode mode, bool dir)
+{
+    m_robot.teachMove(mode, dir);
+}
+
+void Application::stopByController()
+{
+    m_robot.stopTeachMove();
+}

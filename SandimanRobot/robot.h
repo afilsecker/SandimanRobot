@@ -4,7 +4,7 @@
 
 #include "rsdef.h"
 
-#define ROBOT_ADDR "192.168.0.47"
+#define ROBOT_ADDR "192.168.8.127"
 #define ROBOT_PORT 8899
 #define M_PI_A 3.14159265358979323846
 
@@ -42,7 +42,6 @@ signals:
 public:
 	// First thing to do
 	bool startup();
-
 	bool teachMove(teach_mode mode, bool dir);
 	void stopTeachMove();
 	void setSpeed(int speed);

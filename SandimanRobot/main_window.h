@@ -11,6 +11,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
 
 public:
@@ -18,11 +19,17 @@ public:
 
 private:
     void keyPressEvent(QKeyEvent* event);
+
     void keyReleaseEvent(QKeyEvent* event);
 
 signals:
     void moveByKey(Qt::Key key);
+
     void stopByKey(Qt::Key key);
+
+    void keyPressed(Qt::Key key);
+
+    void keyReleased(Qt::Key key);
 
 private slots:
     void changeSpeedLabel(int speed);

@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Application_t {
-    const uint offsetsAndSize[20];
-    char stringdata0[97];
+    const uint offsetsAndSize[30];
+    char stringdata0[151];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Application_t, stringdata0) + ofs), len 
@@ -39,12 +39,18 @@ QT_MOC_LITERAL(52, 12), // "stopByButton"
 QT_MOC_LITERAL(65, 9), // "moveByKey"
 QT_MOC_LITERAL(75, 7), // "Qt::Key"
 QT_MOC_LITERAL(83, 3), // "key"
-QT_MOC_LITERAL(87, 9) // "stopByKey"
+QT_MOC_LITERAL(87, 9), // "stopByKey"
+QT_MOC_LITERAL(97, 16), // "moveByController"
+QT_MOC_LITERAL(114, 10), // "teach_mode"
+QT_MOC_LITERAL(125, 4), // "mode"
+QT_MOC_LITERAL(130, 3), // "dir"
+QT_MOC_LITERAL(134, 16) // "stopByController"
 
     },
     "Application\0loginResultRecieve\0\0result\0"
     "moveByButton\0stopByButton\0moveByKey\0"
-    "Qt::Key\0key\0stopByKey"
+    "Qt::Key\0key\0stopByKey\0moveByController\0"
+    "teach_mode\0mode\0dir\0stopByController"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,7 +60,7 @@ static const uint qt_meta_data_Application[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,11 +68,13 @@ static const uint qt_meta_data_Application[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   44,    2, 0x0a,    1 /* Public */,
-       4,    0,   47,    2, 0x0a,    3 /* Public */,
-       5,    0,   48,    2, 0x0a,    4 /* Public */,
-       6,    1,   49,    2, 0x0a,    5 /* Public */,
-       9,    1,   52,    2, 0x0a,    7 /* Public */,
+       1,    1,   56,    2, 0x0a,    1 /* Public */,
+       4,    0,   59,    2, 0x0a,    3 /* Public */,
+       5,    0,   60,    2, 0x0a,    4 /* Public */,
+       6,    1,   61,    2, 0x0a,    5 /* Public */,
+       9,    1,   64,    2, 0x0a,    7 /* Public */,
+      10,    2,   67,    2, 0x0a,    9 /* Public */,
+      14,    0,   72,    2, 0x0a,   12 /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -74,6 +82,8 @@ static const uint qt_meta_data_Application[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 7,    8,
     QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 11, QMetaType::Bool,   12,   13,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -89,6 +99,8 @@ void Application::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 2: _t->stopByButton(); break;
         case 3: _t->moveByKey((*reinterpret_cast< std::add_pointer_t<Qt::Key>>(_a[1]))); break;
         case 4: _t->stopByKey((*reinterpret_cast< std::add_pointer_t<Qt::Key>>(_a[1]))); break;
+        case 5: _t->moveByController((*reinterpret_cast< std::add_pointer_t<teach_mode>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
+        case 6: _t->stopByController(); break;
         default: ;
         }
     }
@@ -102,7 +114,7 @@ const QMetaObject Application::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Application_t
 , QtPrivate::TypeAndForceComplete<Application, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Qt::Key, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Qt::Key, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Qt::Key, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Qt::Key, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<teach_mode, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -129,13 +141,13 @@ int Application::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }

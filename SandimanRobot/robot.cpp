@@ -88,6 +88,18 @@ bool Robot::teachMove(teach_mode mode, bool dir) {
 void Robot::stopTeachMove()
 {
     rs_teach_move_stop(r_rshd);
+    bool listo = false;
+    float end_speed;
+    while (!listo)
+    {
+        rs_get_robot_end_speed(r_rshd, &end_speed);
+        qDebug() << "end speed" << end_speed;
+        if (end_speed < 0.01)
+        {
+            qDebug() << "esta listo";
+            listo = true;
+        }
+    }
 }
 
 void Robot::my_example()
